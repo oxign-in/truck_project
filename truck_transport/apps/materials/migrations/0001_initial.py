@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Goods',
+            name='Materials',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('weight', models.PositiveIntegerField(default=0)),
                 ('source', models.CharField(max_length=200)),
                 ('destination', models.CharField(max_length=200)),
-                ('created_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='goods', to=settings.AUTH_USER_MODEL)),
+                ('created_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='materials', to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

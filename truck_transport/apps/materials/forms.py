@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm 
 from django import forms
 from django.forms import ModelForm
-from apps.goods.models import Goods
+from apps.materials.models import Materials
 
 
 # If you don't do this you cannot use Bootstrap CSS
@@ -11,7 +11,7 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(label="Password", max_length=30, 
                                widget=forms.TextInput(attrs={'class': 'form-control', 'name': 'password'}))
 
-class GoodsForm(ModelForm):
+class MaterialsForm(ModelForm):
 	class Meta:
-		model = Goods
+		model = Materials
 		fields = ['name', 'delivery_date', 'weight', 'source', 'destination']

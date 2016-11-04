@@ -1,0 +1,6 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+{% for material in materials_list %}
+<h4>{{forloop.counter}}.) Name: {{material.name}}<h4>
+{% endfor %}
+{% endblock %}

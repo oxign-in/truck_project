@@ -18,6 +18,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         _('username'),
         max_length=200,
         blank=True,
+        unique=True,
         help_text=_('Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.'),
         validators=[
             validators.RegexValidator(
