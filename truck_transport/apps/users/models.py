@@ -14,6 +14,15 @@ class User(AbstractBaseUser, PermissionsMixin):
         (TRANS, 'Transgender'),
     )
 
+    PROVIDER = 1
+    DRIVER = 2
+    BROKER = 3
+    USER_ROLES = (
+        (PROVIDER, 'Provider'),
+        (DRIVER, 'Driver'),
+        (BROKER, 'Broker'),
+    )
+
     username = models.CharField(
         _('username'),
         max_length=200,
@@ -49,6 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
     gender = models.PositiveSmallIntegerField(_('Gender'), choices=GENDER_CHOICES, blank=True, null=True)
+    role = models.PositiveSmallIntegerField(_('Role'), choices=USER_ROLES, blank=True, null=True)
     birth_date = models.DateField(_('Birth date'), blank=True, null=True)
     address1 = models.CharField(_('Address1'), blank=True, max_length=100)
     address2 = models.CharField(_('Address2'), blank=True, max_length=100)
@@ -60,7 +70,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'id'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
     class Meta:

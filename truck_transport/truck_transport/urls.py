@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse_lazy
 
 urlpatterns = [
     url(r'', include('apps.urls')),
+    url(r'^api/v1/', include('apps.api.v1.urls')),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page':reverse_lazy('index')}, name='auth_logout'),
     url(r'^admin/', admin.site.urls),
